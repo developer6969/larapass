@@ -38,3 +38,42 @@ Step 7 : Register 'RegisterController' in route/api.php
 
 Step 8 : Create Login Controller
 $ php artisan make:controller Api/Auth/LoginController
+
+Step 9 : Create Post Model
+$ php artisan make:model Post -m
+# Step database relation in User.php & Post.php
+# Run Migration
+# User Tinker to generate few posts
+
+Create Post Controller
+$ php artisan make:controller Api/PostController
+# Create index function in controller
+# Add api route for post controller index function
+
+Test on Postmen
+# GET : http://127.0.0.1:8000/api/posts
+# Header :
+    Accept : application/json
+    Authorization : Bearer mjfdaf54dfd5f418sd74f56sd4f
+# Response
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "First Post",
+            "body": "Im a simple description",
+            "user_id": 2,
+            "created_at": "2019-05-25 20:13:07",
+            "updated_at": "2019-05-25 20:14:14"
+        },
+        {
+            "id": 2,
+            "title": "Second Post",
+            "body": "Im a simple description for second post",
+            "user_id": 2,
+            "created_at": "2019-05-25 20:15:01",
+            "updated_at": "2019-05-25 20:15:01"
+        }
+    ]
+}
+

@@ -23,6 +23,7 @@ Route::post('logout', 'Api\Auth\LoginController@logout');
 
 Route::middleware('auth:api')->group(function() {
     Route::post('logout','Api\Auth\LoginController@logout');
+    Route::get('posts', 'Api\PostController@index');
     Route::get('user', function (Request $request) {
         return $request->user();
     });
