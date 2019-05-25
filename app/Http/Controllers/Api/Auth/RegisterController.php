@@ -10,6 +10,7 @@ use Laravel\Passport\Client;
 
 class RegisterController extends Controller
 {
+    use IssueTokenTrait;
     private $client;
 
     /**
@@ -49,20 +50,22 @@ class RegisterController extends Controller
     		'password' => bcrypt(request('password'))
     	]);
 
-    	$params = [
-            'grant_type' => 'password',
-            'client_id' => $this->client->id,
-            'client_secret' => $this->client->secret,
-            'username' => request('email'),
-            'password' => request('password'),
-            'scope' => '*'
-        ];
+        return $this->issueToken($request, 'password');
+        
+    	// $params = [
+        //     'grant_type' => 'password',
+        //     'client_id' => $this->client->id,
+        //     'client_secret' => $this->client->secret,
+        //     'username' => request('email'),
+        //     'password' => request('password'),
+        //     'scope' => '*'
+        // ];
 
-        $request->request->add($params);
+        // $request->request->add($params);
 
-    	$proxy = Request::create('oauth/token', 'POST');
+    	// $proxy = Request::create('oauth/token', 'POST');
 
-    	return Route::dispatch($proxy);
+    	// return Route::dispatch($proxy);
 
     }
 }
