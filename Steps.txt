@@ -24,7 +24,7 @@ Step 4 : Passport Instalation
  $ php artisan passport:install
 
 Step 5 : Passport Configuration
-In this step, we have to configuration on three place model, service provider and auth config file. 
+In this step, we have to configuration on three place model, service provider and auth config file.
 So you have to just following change on that file.
 - In model we added HasApiTokens class of Passport,
 - In AuthServiceProvider we added "Passport::routes()",
@@ -36,6 +36,5 @@ $ php artisan make:controller Api/Auth/RegisterController
 Step 7 : Register 'RegisterController' in route/api.php
 # Route::post('register', 'Api/Auth/RegisterController@register');
 
-Step 8 : Create Methods in RegisterController
-# Create a public method 'register' accepting Request as parameter
-# Validate request
+Step 8 : Create Login Controller
+$ php artisan make:controller Api/Auth/LoginController
